@@ -17,12 +17,14 @@ let winningPattern = [
 //Player 'X' plays first
 let xTurn = true;
 let count = 0;
+
 //Disable All Buttons
 const disableButtons = () => {
   btnRef.forEach((element) => (element.disabled = true));
   //enable popup
   popupRef.classList.remove("hide");
 };
+
 //Enable all buttons (For New Game and Restart)
 const enableButtons = () => {
   btnRef.forEach((element) => {
@@ -32,6 +34,7 @@ const enableButtons = () => {
   //disable popup
   popupRef.classList.add("hide");
 };
+
 //This function is executed when a player wins
 const winFunction = (letter) => {
   disableButtons();
@@ -41,11 +44,13 @@ const winFunction = (letter) => {
     msgRef.innerHTML = "&#x1F389; <br> 'O' Wins";
   }
 };
+
 //Function for draw
 const drawFunction = () => {
   disableButtons();
   msgRef.innerHTML = "&#x1F60E; <br> It's a Draw";
 };
+
 //New Game
 newgameBtn.addEventListener("click", () => {
   count = 0;
@@ -55,6 +60,7 @@ restartBtn.addEventListener("click", () => {
   count = 0;
   enableButtons();
 });
+
 //Win Logic
 const winChecker = () => {
   //Loop through all win patterns
@@ -74,6 +80,7 @@ const winChecker = () => {
     }
   }
 };
+
 //Display X/O on click
 btnRef.forEach((element) => {
   element.addEventListener("click", () => {
